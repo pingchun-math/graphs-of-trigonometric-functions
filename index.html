@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秉鈞老師的教學空間 | 簡潔現代科技風</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ==================== 核心 CSS 樣式 ==================== */
+        :root {
+            --primary-color: #00bcd4; /* 科技藍/青色 */
+            --secondary-color: #3f51b5; /* 深藍色 */
+            --background-color: #121212; /* 深色背景 */
+            --text-color: #e0e0e0; /* 淺色文字 */
+            --card-background: #1e1e1e; /* 卡片背景 */
+            --border-color: rgba(0, 188, 212, 0.3); /* 科技邊框微光 */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* 導覽列 */
+        header {
+            background-color: rgba(30, 30, 30, 0.9);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 區塊通用樣式 */
+        section {
+            padding: 60px 0;
+            min-height: 80vh;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        /* 科技感標題下劃線 */
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+
+        /* 卡片樣式 */
+        .card {
+            background-color: var(--card-background);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.1);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0, 188, 212, 0.3);
+        }
+
+        /* 1. 關於秉鈞 */
+        #about {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        
+        .profile-text {
+            flex: 1;
+        }
+        
+        .profile-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.5);
+        }
+        
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .skill-item {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .skill-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* 2. 教學資源 */
+        #resources table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        #resources th, #resources td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        #resources th {
+            background-color: var(--secondary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        #resources tr:hover {
+            background-color: #2a2a2a;
+        }
+
+        .download-btn {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #0097a7;
+        }
+
+        /* 3. 提問區 */
+        #qa form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--card-background);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0097a7;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Pingchun's Space</div>
+                <div class="nav-links">
+                    <a href="#about">關於秉鈞</a>
+                    <a href="#resources">教學資源</a>
+                    <a href="#qa">***</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="container">
+            <h2><i class="fas fa-chalkboard-teacher"></i> 關於秉鈞</h2>
+            <div class="profile-photo">
+                <img src="placeholder-teacher.jpg" alt="秉鈞老師專業形象照"> 
+            </div>
+            <div class="profile-text">
+                <p>
+                    嗨，我是秉鈞，目前是一位高職數學科教師，網站會慢慢建置一些有趣的教學素材，歡迎同學使用學習。
+                </p>
+                <p style="margin-top: 15px;">
+                    **教學理念：** 數學原理搭配實用的教學素材，鼓勵學生透過系統思考，使用數學方法解決生活的問題，培養未來所需的競爭力。
+                </p>
+
+                <div class="skills-grid">
+                    <div class="card skill-item">
+                        <i class="fas fa-code"></i>
+                        <h4>數學的邏輯思考</h4>
+                    </div>
+                    <div class="card skill-item">
+                        <i class="fas fa-globe"></i>
+                        <h4>數學與生活</h4>
+                    </div>
+                    <div class="card skill-item">
+                        <i class="fas fa-database"></i>
+                        <h4>各式各樣的教學素材</h4>
+                    </div>
+                    <div class="card skill-item">
+                        <i class="fas fa-cogs"></i>
+                        <h4>透過步驟找到自己的問題</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="container">
+            <h2><i class="fas fa-book-open"></i> 教學資源</h2>
+            <div class="card">
+                
+
+            </div>
+
+
+    </main>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 20px 0; border-top: 1px solid var(--border-color);">
+            <p>&copy; 2025 秉鈞老師的教學空間 | All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== 基本 JavaScript 腳本 ====================
+        document.getElementById('qa-form').addEventListener('submit', function(e) {
+            // 這邊僅是前端模擬提交成功，實際寄信需要後端程式碼配合
+            e.preventDefault(); 
+            
+            // 實際開發中，這裡會是 AJAX 請求後端處理寄信
+            
+            // 模擬請求成功 (取代成實際的成功判斷邏輯)
+            setTimeout(() => {
+                document.getElementById('submission-message').style.display = 'block';
+                document.getElementById('qa-form').reset(); // 清空表單
+                
+                // 3秒後隱藏訊息
+                setTimeout(() => {
+                    document.getElementById('submission-message').style.display = 'none';
+                }, 3000);
+                
+            }, 500);
+            
+            console.log("表單資料已捕獲，等待後端發送郵件到 kmhpc@kmvs.km.edu.tw");
+        });
+    </script>
+
+</body>
+</html>
